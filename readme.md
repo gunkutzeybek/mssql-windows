@@ -11,7 +11,7 @@ This is the Dockerfile for an extension on microsoft/mssql-server-windows-develo
 
 ## Run this sample
 
-The image is bsaed on [microsoft/mssql-server-windows-developer] (https://hub.docker.com/r/microsoft/mssql-server-windows-developer/). You can check the environment variables that can be set there. </br>
+The image is bsaed on [microsoft/mssql-server-windows-developer](https://hub.docker.com/r/microsoft/mssql-server-windows-developer/). You can check the environment variables that can be set there. </br>
 
 The only difference is the additional properties at **attach_dbs** parameter.
 So the JSON format becomes:
