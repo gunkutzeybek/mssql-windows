@@ -1,0 +1,27 @@
+version: '3.1'
+services:
+  mssql:
+    image: microsoft/mssql-server-windows-developer
+    ports:
+      - 1433:1433
+    environment:
+      - sa_password=P@ssw0rd
+      - ACCEPT_EULA=Y
+      - attach_dbs=[{'dbName':'AshopCommerce','dbUser':'tancme','dbUserPass':'Dunya2!Mars1','dbFiles':['c:\\temp\\AshopCommerce.mdf','c:\\temp\\AshopCommerce_1.ndf','c:\\temp\\AshopCommerce_2.ldf']}]
+    volumes:
+      - C:/Program Files/Microsoft SQL Server/MSSQL14.MSSQLSERVER/MSSQL/DATA:c:/temp/
+      - C:/Personal/DockerCompose/MssqlDockerScript:C:/startupscript
+    command: powershell -Command .\\start_with_user -sa_password $$env:sa_password -ACCEPT_EULA $$env:ACCEPT_EULA -attach_dbs \"$$env:attach_dbs\" -secondary_user $$env:secondary_user -secondary_user_password $$env:secondary_user_password -Verbose
+    networks:
+      mssql_net:
+        ipv4_address: 172.16.238.10
+
+networks: 
+  mssql_net: 
+    driver: nat
+    ipam: 
+      driver: default
+      config: 
+        -
+          subnet: 172.16.238.0/24
+      

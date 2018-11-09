@@ -11,7 +11,7 @@ This is the Dockerfile for an extension on microsoft/mssql-server-windows-develo
 
 ## Run this sample
 
-The image is bsaed on [microsoft/mssql-server-windows-developer](https://hub.docker.com/r/microsoft/mssql-server-windows-developer/). You can check the environment variables that can be set there. </br>
+The image is based on [microsoft/mssql-server-windows-developer](https://hub.docker.com/r/microsoft/mssql-server-windows-developer/). You can check the environment variables that can be set there. </br>
 
 The only difference is the additional properties at **attach_dbs** parameter.
 So the JSON format becomes:
@@ -45,4 +45,12 @@ This example shows all parameters in action:
 ```
 docker container run -p 1433:1433 -e sa_password=P@ssw0rd -e ACCEPT_EULA=Y -e attach_dbs="[{'dbName':'SomeDBName','dbUser':'AUser','dbUserPass':'APassword','dbFiles':['.mdf','c:\\temp\\AshopCommerce_1.ndf','c:\\temp\\AshopCommerce_2.ld
 f']}]" --network dockercompose_mssql_net --ip 172.16.238.10 -v C:/Program` Files/Microsoft` SQL` Server/MSSQL14.MSSQLSERVER/MSSQL/DATA:c:/temp/ -v C:/Personal/DockerCompose/MssqlDockerScript:C:/startupscript gunkut/mssql-windows:latest
+```
+
+And also you can find a sample docker compose yaml [here](docker-mssql.yaml). 
+
+**Usage**:
+
+```
+docker-compose -f ./docker-mssql.yaml up
 ```
