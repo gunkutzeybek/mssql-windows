@@ -22,15 +22,13 @@ So the JSON format becomes:
 		'dbName': 'FirstSampleDB',
         'dbUser': 'userForDB1',
         'dbUserPass': 'passwordForUser',
-		'dbFiles': ['C:\\temp\\maxtest.mdf',
-		'C:\\temp\\maxtest_log.ldf']
+		'dbFiles': ['C:\\temp\\FirstSampleDB.mdf', 'c:\\temp\\FirstSampleDB_1.ldf']
 	},
 	{
-		'dbName': 'PerryDb',
-        'dbUser': 'userForDB1',
+		'dbName': 'SecondSampleDB',
+        'dbUser': 'userForDB2',
         'dbUserPass': 'passwordForUser',
-		'dbFiles': ['C:\\temp\\perrytest.mdf',
-		'C:\\temp\\perrytest_log.ldf']
+		'dbFiles': ['C:\\temp\\SecondSampleDB.mdf', 'C:\\temp\\SecondSampleDB_log.ldf']
 	}
   ]
   ```
@@ -40,7 +38,7 @@ So the JSON format becomes:
   Each consisting of:
   - **dbName**: The name of the database
   - **dbFiles**: An array of one or many absolute paths to the .MDF and .LDF files.
-  - **dbUser**: The username that will be created as a login in the server and also will have the mappings for the datbase wih db_admin role assigned. 
+  - **dbUser**: The username that will be created as a login in the server and also will have the mappings for the database wih db_admin role assigned. 
   - **dbUserPass**: Password for the user that will be created according to the dbUser parameter.
 
 This example shows all parameters in action:
