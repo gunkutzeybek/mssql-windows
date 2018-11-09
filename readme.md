@@ -54,3 +54,9 @@ And also you can find a sample docker compose yaml [here](docker-mssql.yaml).
 ```
 docker-compose -f ./docker-mssql.yaml up
 ```
+
+With if you run the container with this compose yaml the connection string should be something like:
+
+```
+data source=tcp:172.16.238.10,1433;initial catalog=SampleCommerce;User ID=commerce_admin;Password=abc123!;persist security info=False;
+```
