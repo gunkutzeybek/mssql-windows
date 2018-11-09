@@ -76,7 +76,7 @@ if ($null -ne $dbs -And $dbs.Length -gt 0)
             try
             {
                 $sqlVariable = "SECONDARY_USER=$($db.dbUser)", "SECONDARY_USER_PASSWORD=$($db.dbUserPass)", "DT_NAME=$($db.dbName)"                
-                Invoke-SqlCmd -InputFile "$WORKDIRcreate_login_and_user.sql" -ErrorAction Stop -Variable $sqlVariable
+                Invoke-SqlCmd -InputFile "create_login_and_user.sql" -ErrorAction Stop -Variable $sqlVariable
                 Write-Verbose "Secondary user $($db.dbUser) is created..."
             } catch [Exception] {
                 Write-Verbose "$_.Exception"
