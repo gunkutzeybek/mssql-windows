@@ -1,16 +1,15 @@
 version: '3.1'
 services:
   mssql:
-    image: microsoft/mssql-server-windows-developer
+    image: gunkut/mssql-windows
     ports:
       - 1433:1433
     environment:
       - sa_password=P@ssw0rd
       - ACCEPT_EULA=Y
-      - attach_dbs=[{'dbName':'SampleCommerce','dbUser':'commerce_admin','dbUserPass':'asd123!','dbFiles':['c:\\temp\\SampleCommerce.mdf','c:\\temp\\SampleCommerce_1.ndf','c:\\temp\\SampleCommerce_2.ldf']}]
+      - attach_dbs=[{'dbName':'AshopCommerce','dbUser':'tancme','dbUserPass':'Dunya2!Mars1','dbFiles':['c:\\temp\\AshopCommerce.mdf','c:\\temp\\AshopCommerce_1.ndf','c:\\temp\\AshopCommerce_2.ldf']}]
     volumes:
-      - C:/Program Files/Microsoft SQL Server/MSSQL14.MSSQLSERVER/MSSQL/DATA:c:/temp/
-    command: powershell -Command .\\start_with_user -sa_password $$env:sa_password -ACCEPT_EULA $$env:ACCEPT_EULA -attach_dbs \"$$env:attach_dbs\" -Verbose
+      - C:/Program Files/Microsoft SQL Server/MSSQL14.MSSQLSERVER/MSSQL/DATA:c:/temp/          
     networks:
       mssql_net:
         ipv4_address: 172.16.238.10
